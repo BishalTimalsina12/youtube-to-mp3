@@ -1,0 +1,13 @@
+﻿@model songplayer.Models.DownloadViewModel
+
+<div class="container">
+    <h1>Download Ready</h1>
+    @if (!string.IsNullOrEmpty(Model.DownloadToken))
+    {
+        <a href="@Url.Action("DownloadMp3", "Video", new { token = Model.DownloadToken })" class="btn btn-primary">Download MP3</a>
+    }
+    else
+    {
+        <p>There was a problem preparing your download.</p>
+    }
+</div>

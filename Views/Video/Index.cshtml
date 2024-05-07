@@ -1,0 +1,72 @@
+﻿@model songplayer.Models.VideoDownloadModel
+
+<div class="container">
+    <h1>Welcome to YouTube MP3 Downloader</h1>
+    <p>YouTube.com is the largest video sharing platform on the Internet. Every day millions of new videos are added. While you can find all kinds of videos, YouTube does not offer a free downloading service for these videos.</p>
+    <p>Our tool allows you to convert your favorite YouTube videos to MP3 (audio) files in a highly efficient manner. You can use this service on any device – it is optimized for desktop, tablet, and mobile devices without the need for additional software or apps.</p>
+
+    <h2>YouTube to MP3 Converter</h2>
+    @if (!string.IsNullOrEmpty(Model?.FilePath))
+    {
+        <div class="alert alert-success">
+            <strong>Success!</strong> Your file is ready for download:
+            <a href="@Url.Content("~/Content/Downloads/" + Model.FilePath)" class="alert-link">Download MP3</a>
+        </div>
+    }
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+
+    <form asp-action="ConvertToMp3" method="post">
+        <div class="form-group">
+            <label for="YouTubeUrl">YouTube Video URL:</label>
+            <br />
+
+            <input type="text" class="form-control" id="YouTubeUrl"placeholder="Please provide a valid youtube url" name="YouTubeUrl" value="@Model.YouTubeUrl" required>
+            <br />
+
+        </div>
+        <button type="submit" class="btn btn-primary">Convert to MP3</button>
+    </form>
+
+    <p>By using our converter, you are accepting our Terms of Use.</p>
+
+    <div id="progress"></div>
+
+
+    <h2>How to download YouTube videos?</h2>
+    <ol>
+        <li>Open YouTube.com and search for the video you would like to download.</li>
+        <li>Click on the video and copy the URL from your browser's address bar.</li>
+        <li>Paste the video URL into the field above and click the "Convert to MP3" button.</li>
+        <li>The conversion will start and may take a few minutes, depending on the video length and quality.</li>
+        <li>Once the conversion is complete, your mp3 audio will download automatically.</li>
+    </ol>
+</div>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.6/signalr.min.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/progressHub").build();
+
+        connection.on("ReceiveMessage", function (message) {
+            document.getElementById("progress").innerText = "Progress: " + message;
+        });
+
+        connection.start().catch(function (err) {
+            console.error("Error connecting to the hub: ", err.toString());
+        });
+
+        connection.start().then(function () {
+            console.log("Connected to hub");  // Added to confirm connection success
+        }).catch(function (err) {
+            console.error("Error connecting to the hub: ", err.toString());
+        });
+    </script>
+}

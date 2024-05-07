@@ -1,0 +1,15 @@
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\songplayer.exe
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\appsettings.json
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\songplayer.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\songplayer.deps.json
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\songplayer.runtimeconfig.json
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\songplayer.pdb
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\FFMpegCore.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\Instances.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\MediaToolkit.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\System.Net.WebSockets.WebSocketProtocol.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
+D:\tagmanager\songplayer\obj\Release\net8.0\PubTmp\Out\libvideo.dll
